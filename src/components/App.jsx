@@ -3,7 +3,7 @@ import React from 'react';
 export default function App() {
   return (
     <div>
-      <h1>Proyecto Final</h1>
+      <h1>Task List</h1>
     </div>
   );
 }
