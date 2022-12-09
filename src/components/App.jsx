@@ -1,9 +1,11 @@
 import React from 'react';
+import Tasklist from './lists/TodoList';
+// import Settings from './settings/Settings';
 
 export default function App() {
   return (
     <div>
-      <h1>Task List</h1>
+      <Tasklist />
     </div>
   );
 }
