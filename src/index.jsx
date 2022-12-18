@@ -1,5 +1,5 @@
 // Importar de React
-import React from 'react';
+import * as React from 'react';
 import reactDom from 'react-dom';
 
 // Importar Redux
