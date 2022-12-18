@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import useList from '../../hooks/useList';
 import useConter from '../../hooks/useConter';
 
-const Tasklist = () => {
+const TaskList = () => {
   const tasks = useList([]);
   const numTasks = useConter(tasks.lenList);
   const [newTask, setNewTask] = useState('');
@@ -65,4 +65,4 @@ const Tasklist = () => {
   );
 };
 
-export default Tasklist;
+export default TaskList;
