@@ -4,7 +4,7 @@ const useConter = () => {
   const [value, setValue] = useState(0);
 
   // incrementar
-  const increment = (maxValue) => {
+  const increment = (maxValue = 6) => {
     if (value < maxValue) {
       setValue(value + 1);
     } else {

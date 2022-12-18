@@ -28,15 +28,15 @@ module.exports = {
         rules: [
             // Reglas para archivos de JS y JSX
             // Tienen que pasar el LINTING para para poder pasar
-            {
-                enforce: 'pre',
-                test: /(\.js|\.jsx)$/,
-                exclude: /node_modules/,
-                use: [
-                  'eslint-loader',
-                  'source-map-loader',
-                ],
-            },
+            // {
+            //     enforce: 'pre',
+            //     test: /(\.js|\.jsx)$/,
+            //     exclude: /node_modules/,
+            //     use: [
+            //       'eslint-loader',
+            //       'source-map-loader',
+            //     ],
+            // },
             // Reglas para archivos JS y JSX
             // Reglas de Babel ES y JSX
             {

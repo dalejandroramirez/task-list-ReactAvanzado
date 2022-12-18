@@ -9,7 +9,7 @@ const useList = (initialValue = []) => {
     setValue((oldValue) => [...oldValue, element]);
   };
 
-  // Remove VAlue from list
+  // Remove Value from list
   const remove = (index) => {
     setValue((oldValue) => oldValue.filter((_, i) => i !== index));
   };
