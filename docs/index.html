@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset='utf-8'>
+  <title>proyecto-final 1.0.0 | Documentation</title>
+  <meta name='description' content='Proyecto final curso React JS'>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' rel='stylesheet'>
+  <link href='assets/style.css' rel='stylesheet'>
+  <link href='assets/github.css' rel='stylesheet'>
+  <link href='assets/split.css' rel='stylesheet'>
+</head>
+
+<body class='documentation m0'>
+  <div class='flex'>
+    <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
+      <div class='py1 px2'>
+        <h3 class='mb0 no-anchor'>proyecto-final</h3>
+        <div class='mb1'><code>1.0.0</code></div>
+        <input placeholder='Filter' id='filter-input' class='col12 block input' spellcheck='false' autocapitalize='off'
+          autocorrect='off' type='text' />
+        <div id='toc'>
+          <ul class='list-reset h5 py1-ul'>
+
+
+            <li><a href='#app' class="">
+                App
+              </a>
+            </li>
+
+            <li><a href='#tasklist' class="">
+                TaskList
+              </a>
+            </li>
+
+            <li><a href='#addnewtask' class="">
+                addNewTask
+              </a>
+
+            </li>
+
+            <li><a href='#editnewitem' class="">
+                editNewItem
+
+              </a>
+
+            </li>
+
+
+            <li><a href='#insertnewitemonenterkey' class="">
+                insertNewItemOnEnterKey
+
+              </a>
+
+            </li>
+
+
+            <li><a href='#useeffect' class="">
+                useEffect
+
+              </a>
+
+            </li>
+
+
+            <li><a href='#togglemode' class="">
+                toggleMode
+
+              </a>
+
+            </li>
+
+
+            <li><a href='#uselist' class="">
+                useList
+
+              </a>
+
+            </li>
+
+
+            <li><a href='#push' class="">
+                push
+
+              </a>
+
+            </li>
+
+
+            <li><a href='#remove' class="">
+                remove
+
+              </a>
+
+            </li>
+
+
+            <li><a href='#isempty' class="">
+                isEmpty
+
+              </a>
+
+            </li>
+
+
+            <li><a href='#lenlist' class="">
+                lenList
+
+              </a>
+
+            </li>
+
+
+            <li><a href='#removelist' class="">
+                removeList
+
+              </a>
+
+            </li>
+
+          </ul>
+        </div>
+        <div class='mt1 h6 quiet'>
+          <a href='https://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+        </div>
+      </div>
+    </div>
+    <div id='split-right' class='relative overflow-auto height-viewport-100'>
+
+
+      <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+        <div class='clearfix'>
+
+          <h3 class='fl m0' id='app'>
+            App
+          </h3>
+
+
+        </div>
+
+
+        <p>// Funcion anonima para crear una componente principal</p>
+
+        <div class='pre p1 fill-light mt0'>new App(): React.Component</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class='py1 quiet mt1 prose-big'>Returns</div>
+        <code>React.Component</code>:
+        Componente principal de la app
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+
+
+
+
+      <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+        <div class='clearfix'>
+
+          <h3 class='fl m0' id='tasklist'>
+            TaskList
+          </h3>
+
+
+        </div>
+
+
+        <p>Componente que gestiona la lista de tareas</p>
+
+        <div class='pre p1 fill-light mt0'>TaskList</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class='py1 quiet mt1 prose-big'>Returns</div>
+        <code>React.Component</code>:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+
+
+
+
+      <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+        <div class='clearfix'>
+
+          <h3 class='fl m0' id='addnewtask'>
+            addNewTask
+          </h3>
+
+
+        </div>
+
+
+        <p>Añade una nueva tarea a la lista</p>
+
+        <div class='pre p1 fill-light mt0'>addNewTask</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+
+
+
+
+      <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+        <div class='clearfix'>
+
+          <h3 class='fl m0' id='editnewitem'>
+            editNewItem
+          </h3>
+
+
+        </div>
+
+
+
+        <div class='pre p1 fill-light mt0'>editNewItem</div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class='py1 quiet mt1 prose-big'>Parameters</div>
+        <div class='prose'>
+
+          <div class='space-bottom0'>
+            <div>
+              <span class='code bold'>e</span> <code class='quiet'>(any)</code>
+              Evento de onChange
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+
+
+
+
+      <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+        <div class='clearfix'>
+
+          <h3 class='fl m0' id='insertnewitemonenterkey'>
+            insertNewItemOnEnterKey
+          </h3>
+
+
+        </div>
+
+
+        <p>Agrega una nueva tarea cuando se presiona la tecla enter</p>
+
+        <div class='pre p1 fill-light mt0'>insertNewItemOnEnterKey</div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class='py1 quiet mt1 prose-big'>Parameters</div>
+        <div class='prose'>
+
+          <div class='space-bottom0'>
+            <div>
+              <span class='code bold'>e</span> <code class='quiet'>(any)</code>
+              Evento onKeyDown que provenede por defecto de react
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+
+
+
+
+      <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+        <div class='clearfix'>
+
+          <h3 class='fl m0' id='useeffect'>
+            useEffect
+          </h3>
+
+
+        </div>
+
+
+        <p>Documentar useEffect.
+          Se utilizo este hook para cambiar el nombre de la clase de App</p>
+
+        <div class='pre p1 fill-light mt0'>useEffect</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+
+
+
+
+      <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+        <div class='clearfix'>
+
+          <h3 class='fl m0' id='togglemode'>
+            toggleMode
+          </h3>
+
+
+        </div>
+
+
+        <p>Función para intercambiar light &#x3C;-> dark tanto en localStorage como en estado de la aplicación</p>
+
+        <div class='pre p1 fill-light mt0'>toggleMode</div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class='py1 quiet mt1 prose-big'>Parameters</div>
+        <div class='prose'>
+
+          <div class='space-bottom0'>
+            <div>
+              <span class='code bold'>event</span> <code class='quiet'>(any)</code>
+              Evento de click proveniente de React
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+
+
+
+
+      <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+        <div class='clearfix'>
+
+          <h3 class='fl m0' id='uselist'>
+            useList
+          </h3>
+
+
+        </div>
+
+
+
+        <div class='pre p1 fill-light mt0'>useList</div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class='py1 quiet mt1 prose-big'>Parameters</div>
+        <div class='prose'>
+
+          <div class='space-bottom0'>
+            <div>
+              <span class='code bold'>initialValue</span> <code class='quiet'>(anyArray
+            = <code>[]</code>)</code>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+        <div class='py1 quiet mt1 prose-big'>Returns</div>
+        <code>any</code>:
+        Un Hook personalizado para crear una lista
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+
+
+
+
+      <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+        <div class='clearfix'>
+
+          <h3 class='fl m0' id='push'>
+            push
+          </h3>
+
+
+        </div>
+
+
+        <p>Push new value to list</p>
+
+        <div class='pre p1 fill-light mt0'>push</div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class='py1 quiet mt1 prose-big'>Parameters</div>
+        <div class='prose'>
+
+          <div class='space-bottom0'>
+            <div>
+              <span class='code bold'>element</span> <code
+                class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+
+
+
+
+      <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+        <div class='clearfix'>
+
+          <h3 class='fl m0' id='remove'>
+            remove
+          </h3>
+
+
+        </div>
+
+
+        <p>Remove Value from list en la posicion index</p>
+
+        <div class='pre p1 fill-light mt0'>remove</div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class='py1 quiet mt1 prose-big'>Parameters</div>
+        <div class='prose'>
+
+          <div class='space-bottom0'>
+            <div>
+              <span class='code bold'>index</span> <code
+                class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+
+
+
+
+      <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+        <div class='clearfix'>
+
+          <h3 class='fl m0' id='isempty'>
+            isEmpty
+          </h3>
+
+
+        </div>
+
+
+        <p>List is Empty ? true/ false</p>
+
+        <div class='pre p1 fill-light mt0'>isEmpty</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class='py1 quiet mt1 prose-big'>Returns</div>
+        <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        true if is empty
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+
+
+
+
+      <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+        <div class='clearfix'>
+
+          <h3 class='fl m0' id='lenlist'>
+            lenList
+          </h3>
+
+
+        </div>
+
+
+
+        <div class='pre p1 fill-light mt0'>lenList</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class='py1 quiet mt1 prose-big'>Returns</div>
+        <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        length of list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+
+
+
+
+      <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+        <div class='clearfix'>
+
+          <h3 class='fl m0' id='removelist'>
+            removeList
+          </h3>
+
+
+        </div>
+
+
+        <p>Reset of list</p>
+
+        <div class='pre p1 fill-light mt0'>removeList</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+
+
+
+    </div>
+  </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/split.js'></script>
+  <script src='assets/site.js'></script>
+</body>
+
+</html>
