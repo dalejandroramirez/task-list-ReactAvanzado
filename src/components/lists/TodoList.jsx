@@ -4,26 +4,48 @@ import { useState } from 'react';
 import useList from '../../hooks/useList';
 import useConter from '../../hooks/useConter';
 
+/**
+ * Componente que gestiona la lista de tareas
+ * 
+ * @returns {React.Component} 
+ */
+
 const TaskList = () => {
   const tasks = useList([]);
   const numTasks = useConter(tasks.lenList);
-  const [newTask, setNewTask] = useState('')
+  const [newTask, setNewTask] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
     tasks.push(newTask);
-    numTasks.increment(6);
+    numTasks.increment();
     setNewTask('');
   };
 
-
+  /**
+   * Añade una nueva tarea a la lista
+   */
   const addNewTask = () => {
     tasks.push(newTask);
     numTasks.increment();
     setNewTask("")
-
-
   };
+
+  /**
+   * 
+   * @param {*} e Evento de onChange 
+   * @returns 
+   */
+
+  const editNewItem = (e) => setNewTask(e.target.value);
+
+  /**
+   * Agrega una nueva tarea cuando se presiona la tecla enter
+   * @param {*} e - Evento onKeyDown que provenede por defecto de react 
+   * @returns 
+   */
+
+  const insertNewItemOnEnterKey = (e) => e.key === "Enter" && addNewTask()
 
   return (
     <div>
@@ -40,28 +62,22 @@ const TaskList = () => {
             {' '}
             Task
           </h3>
-)}
+        )}
 
-      {/* <form onSubmit={handleSubmit}>
-      <input value={newTask} onChange={handleInputChange} placeholder="New Task" type="text" />
-      <button type="submit"> Create Task</button>
-      <button type="button" onClick={() => tasks.sortList(tasks)}>sort</button>
-      <button type="button" onClick={() => tasks.reverseList(tasks)}>Reset</button>
-      </form> 
-      */}    
       <div onSubmit={handleSubmit}>
-        <input 
-          value={newTask} 
-          onChange={e => setNewTask(e.target.value)} 
+        <input
+          value={newTask}
+          onKeyDown={insertNewItemOnEnterKey}
+          onChange={editNewItem}
           placeholder="New Task"
           type="text" />
-        <button 
+        <button
           type="submit"
           onClick={addNewTask}> Create Task</button>
         {/* <button type="button" onClick={() => tasks.sortList(tasks)}>sort</button>
         <button type="button" onClick={() => tasks.reverseList(tasks)}>Reset</button> */}
       </div>
-      
+
 
 
       {tasks.isEmpty()
@@ -71,7 +87,7 @@ const TaskList = () => {
             {tasks.value.map((task, index) => (
               <li key={index}>
                 <input
-                  onChange={() => {}}
+                  onChange={() => { }}
                   type="checkbox"
                   onClick={() => {
                     numTasks.decrement();
@@ -79,7 +95,7 @@ const TaskList = () => {
                   }}
                   checked={false}
                 />
-                { task }
+                {task}
               </li>
             ))}
           </ul>
