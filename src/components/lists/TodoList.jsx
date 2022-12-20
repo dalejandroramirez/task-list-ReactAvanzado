@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import useList from '../../hooks/useList';
 import useConter from '../../hooks/useConter';
+import { Task } from '../../models/task.model';
 
 /**
  * Componente que gestiona la lista de tareas
@@ -13,14 +14,15 @@ import useConter from '../../hooks/useConter';
 const TaskList = () => {
   const tasks = useList([]);
   const numTasks = useConter(tasks.lenList);
-  const [newTask, setNewTask] = useState('');
+  const taskInit = new Task('', '', false)
+  const [newTask, setNewTask] = useState(taskInit);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    tasks.push(newTask);
-    numTasks.increment();
-    setNewTask('');
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   tasks.push(newTask);
+  //   numTasks.increment();
+  //   setNewTask('');
+  // };
 
   /**
    * Añade una nueva tarea a la lista
@@ -28,7 +30,7 @@ const TaskList = () => {
   const addNewTask = () => {
     tasks.push(newTask);
     numTasks.increment();
-    setNewTask("")
+    setNewTask(taskInit)
   };
 
   /**
@@ -37,7 +39,10 @@ const TaskList = () => {
    * @returns 
    */
 
-  const editNewItem = (e) => setNewTask(e.target.value);
+  const editNewItem = (e) => {
+    const task = new Task (e.target.value,"",false )
+    setNewTask(task)
+}
 
   /**
    * Agrega una nueva tarea cuando se presiona la tecla enter
@@ -64,9 +69,9 @@ const TaskList = () => {
           </h3>
         )}
 
-      <div onSubmit={handleSubmit}>
+      <div>
         <input
-          value={newTask}
+          value={newTask.name}
           onKeyDown={insertNewItemOnEnterKey}
           onChange={editNewItem}
           placeholder="New Task"
@@ -85,21 +90,25 @@ const TaskList = () => {
         : (
           <ul style={{ listStyle: 'none' }}>
             {tasks.value.map((task, index) => (
-              <li key={index}>
+              <li key={index} style={{textDecoration: 'none' }}>
+                {task.id = index}
                 <input
                   onChange={() => { }}
                   type="checkbox"
                   onClick={() => {
-                    numTasks.decrement();
-                    tasks.remove(index);
+                    task.completed ? null : numTasks.decrement() 
+                    task.completed = true
+                    
+                    // tasks.remove(index);
                   }}
-                  checked={false}
+                  checked={task.completed}
                 />
-                {task}
+                {task.name}
               </li>
             ))}
           </ul>
         )}
+
       <button type="button" onClick={() => tasks.removeList()}>Restar</button>
     </div>
   );
