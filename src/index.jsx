@@ -9,6 +9,7 @@ import App from './components/App';
 
 // Importar hojas de estilos
 import './styles/css/index.scss';
+import './index.css';
 
 // Si se trabaja con redux crear el Store y aplicar el middleware de redux Saga
 
