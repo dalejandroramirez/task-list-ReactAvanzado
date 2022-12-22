@@ -1,6 +1,8 @@
 import { render } from '@testing-library/react';
 import React, { useState } from 'react';
 import useLocalStorage from '../../hooks/useLocalStorage';
+import "../../index.css"
+
 
 
 const defaultConfig = {
@@ -18,7 +20,8 @@ export default function Settings() {
    */
 
   React.useEffect(() => {
-    document.getElementById("App").className = dark ? "App dark" : 'App'
+    const clase = document.getElementById("App")
+    dark ? clase.classList.add('dark'): clase.classList.remove('dark');
   }, [dark])
 
   /**
@@ -37,7 +40,7 @@ export default function Settings() {
   };
 
   return (
-    <div className="text-right">
+    <div className='text-right'>
       <hr className="my-4" />
       <h1 className="text-3xl text-cyan-800 font-semibold mb-4 dark:text-cyan-400">APP SETTINGS</h1>
       <p className="text-sm">Actual Config: <span className="italic">{config.theme}</span></p>
