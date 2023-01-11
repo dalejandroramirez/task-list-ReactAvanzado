@@ -1,10 +1,17 @@
 import * as React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import useList from '../../hooks/useList';
 import useConter from '../../hooks/useConter';
 import { Task } from '../../models/task.model';
 import { motion } from "framer-motion"
+
+import { RiDeleteBin5Fill } from "react-icons/ri"
+
+import { addTask, getTask, toggleComplete, deleteTask } from '../../firebase/taskController';
+import { render } from '@testing-library/react';
+
+// coneccion con la base de datos
 
 
 /**
@@ -15,7 +22,7 @@ import { motion } from "framer-motion"
 
 const TaskList = ({ showSetting, setShowSetting }) => {
 
-  const maxNumTask = 6
+  const maxNumTask = 20
 
   const tasks = useList([]);
   const numTasks = useConter(tasks.lenList);
@@ -23,20 +30,38 @@ const TaskList = ({ showSetting, setShowSetting }) => {
   const [newTask, setNewTask] = useState(taskInit);
 
 
+  useEffect(() => {
+    getTask()
+      .then(ListTask => {
+        tasks.setValue(ListTask)
+        numTasks.setValue(ListTask.length)
+      })
+  }, [, removeTask])
+
+
+
   /**
    * Añade una nueva tarea a la lista
    */
-  const addNewTask = () => {
+  const addNewTask = async () => {
     if (newTask.name === "") return;
-    tasks.push(newTask);
-    numTasks.increment();
-    setNewTask(taskInit)
+    addTask(newTask)
+      .then(async r => {
+        const newTaskList = await getTask();
+        tasks.push(newTask);
+        tasks.setValue(newTaskList);
+        numTasks.setValue(newTaskList.length)
+
+        console.log(newTaskList);
+        // Mostrar todas las tareas
+      })
+      .catch(e => console.error(e))
+      .finally(() => {
+        setNewTask(taskInit)
+        numTasks.increment();
+      })
   };
 
-  /**
-   * @param {*} e Evento de onChange 
-   * @returns 
-   */
 
   const editNewItem = (e) => {
     const task = new Task(e.target.value, "", false)
@@ -48,10 +73,18 @@ const TaskList = ({ showSetting, setShowSetting }) => {
    * @param {*} e - Evento onKeyDown que provenede por defecto de react 
    * @returns 
    */
-
   const insertNewItemOnEnterKey = (e) => e.key === "Enter" && addNewTask()
 
-  const taskCompleted = (task) => { !task.completed }
+  const taskCompleted = (task) => {
+
+    // task.completed = !task.completed
+  }
+
+  const removeTask = async (task) => {
+    tasks.remove(task)
+    return deleteTask(task)
+  }
+
 
   return (
     <>
@@ -88,7 +121,7 @@ const TaskList = ({ showSetting, setShowSetting }) => {
             type="text" />
           <button
             className='btn'
-            type="submit"
+            type="text"
             onClick={addNewTask}> Create Task</button>
         </div>
 
@@ -101,21 +134,26 @@ const TaskList = ({ showSetting, setShowSetting }) => {
                 <motion.li
                   key={index}
                   style={{ listStyle: 'none' }}
-                  initial={{ x: "20vw" }} animate={{ x: 0 }} transition={{duration: 0.7 }}
+                  initial={{ x: "20vw" }} animate={{ x: 0 }} transition={{ duration: 0.7 }}
                 >
-                  <label>
+                  <label className='flex flex-auto'>
                     <input
                       onChange={() => { }}
                       type="checkbox"
                       onClick={() => {
+                        toggleComplete(task)
                         task.completed ? numTasks.increment() : numTasks.decrement()
                         task.completed = !task.completed
-                        // tasks.remove(index);
                       }}
                       checked={taskCompleted(task)}
                     />
-                    <span className={`ml-1 text-gray-800 dark:text-gray-100 text-sm italic
-                      ${task.completed && "line-through"}`}>
+                    <button type='submit'
+
+                    ><RiDeleteBin5Fill onClick={() => removeTask(task)} /></button>
+                    <span
+                      className={`ml-1 text-gray-800 dark:text-gray-100 text-sm italic
+                      ${task.completed && "line-through"}`}
+                    >
                       {task.name}
                     </span>
                   </label>
